@@ -2,7 +2,6 @@ var express = require('express')
 var bodyParser = require('body-parser');
 var path = require('path');
 var morgan = require('morgan');
-var cors = require('cors')
 var { check, validationResult } = require('express-validator/check');
 
 var fs = require('fs');
@@ -29,6 +28,13 @@ var subscriptionService = new SubscriptionService(new IntercomService(intercomCl
 
 var app = express()
 
+app.all('/*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "OPTIONS, HEAD, GET, POST, PUT, DELETE");
+  next();  // call next() here to move on to next middleware/router
+})
+
 /**
 * @api {get} /api/v1/subscription/preferences Get user preferences
 * @apiName Get user preferences
@@ -41,13 +47,13 @@ var app = express()
 */
 app.get('/api/v1/users/subscriptions/preferences', [
   check('email').isEmail(),
-], (req, res) => {
+], (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
   subscriptionService.getSubscriptionPreferences(req.query.email, function(preferences) {
-  	res.json(preferences);
+    res.json(preferences);
   });
 });
 
@@ -59,8 +65,8 @@ app.post('/api/v1/users/subscriptions', [
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
-  subscriptionService.subscribeUserToChannel(req.body.email, req.body.channel, function(r) {
-  	subscriptionService.getSubscriptionPreferences(req.body.email, function(preferences) {
+  subscriptionService.subscribeUserToChannel(req.query.email, req.query.channel, function(r) {
+  	subscriptionService.getSubscriptionPreferences(req.query.email, function(preferences) {
       res.json(preferences);
     });
   });
@@ -74,18 +80,14 @@ app.delete('/api/v1/users/subscriptions', [
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
-  subscriptionService.unsubscribeUserFromChannel(req.body.email, req.body.channel, function(r) {
-  	subscriptionService.getSubscriptionPreferences(req.body.email, function(preferences) {
+  subscriptionService.unsubscribeUserFromChannel(req.query.email, req.query.channel, function(r) {
+  	subscriptionService.getSubscriptionPreferences(req.query.email, function(preferences) {
       res.json(preferences);
     });
   });
 });
 
-app.use(cors())
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-app.use(bodyParser.json());
+app.use(express.json())
 app.use(morgan('dev'));
 var public = path.join(__dirname, 'public');
 app.get('/', function(req, res) {
