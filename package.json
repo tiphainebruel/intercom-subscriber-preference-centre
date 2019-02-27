@@ -1,0 +1,34 @@
+{
+  "name": "intercom-subscriber-preference-centre",
+  "version": "0.2.0",
+  "description": "Subscriber preference centre for intercom",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "intercom-client": "^2.10.4",
+    "morgan": "^1.9.1",
+    "express-validator": "^5.3.1",
+    "body-parser": "^1.18.3"
+  },
+  "engines": {
+    "node": "10.15.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tiphainebruel/intercom-subscriber-preference-centre"
+  },
+  "keywords": [
+    "intercom",
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "Tiphaine Bruel",
+  "contributors": [
+    "Tiphaine Bruel <tiphainebruel@ssshake.com> (http://ssshake.com)"
+  ],
+  "license": "MIT"
+}

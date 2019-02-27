@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Email preference center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="/main.css" rel="stylesheet" id="main-css">
+    <script type="text/javascript">
+      $( document ).ready(function() {
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+        elems.forEach(function(html) {
+          var switchery = new Switchery(html);
+        });
+      });
+    </script>
+    <style >
+      body{
+        background-color: gray;
+      }
+
+      .row{
+        margin: 10px 0;
+      }
+
+     label{
+      font-weight: normal;
+      }
+
+      .preferences.logo{
+        width: 100%;
+      }
+
+      h3{
+        font-size: 20px;
+      }
+
+
+    </style>
+</head>
+<body>
+    
+<div class="content">
+  <div class="card">
+    <div class="preferences"><img class="logo" src="http://static1.squarespace.com/static/574ffaf860b5e9804dc1b876/t/5830e8d3414fb5e9ba9f1304/1549761168890"/>
+      <div class="header">
+        <h1>Notification center</h1>
+        <p class="about">Select which lists you would like to receive email communications from</p>
+      </div>
+    </div>
+  </div>
+  <div class="badgescard"> 
+      <div class="row" style="margin: 10px 0;">
+          <label><input type="checkbox" size="10%" class="js-switch" checked /> Local events</label>
+        </div>
+      <div class="row">
+          <label><input type="checkbox" class="js-switch" checked />Job opportunities</label>
+    </div>
+    <div class="row">
+      <label><input type="checkbox" class="js-switch" checked />Blog Articles</label>
+  </div>
+  <div class="row">
+      <label><input type="checkbox" class="js-switch" checked />Video Content</label>
+</div>
+
+<h3> Simply get the monthly digest</h3>
+
+<div class="row">
+    <label><input type="checkbox" class="js-switch" checked />Video Content</label>
+</div>
+
+    </div>
+  </div>
+</body>
+</html>

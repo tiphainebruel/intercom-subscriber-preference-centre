@@ -1,0 +1,7 @@
+{
+  "name": "Intercom subscriber preference centre",
+  "description": "Subscriber preference centre for intercom",
+  "repository": "https://github.com/tiphainebruel/intercom-subscriber-preference-centre",
+  "logo": "http://static1.squarespace.com/static/574ffaf860b5e9804dc1b876/t/5830e8d3414fb5e9ba9f1304/1549542650851/?format=1500w",
+  "keywords": ["node", "express", "static"]
+}
