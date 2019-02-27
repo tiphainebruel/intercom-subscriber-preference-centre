@@ -2,6 +2,7 @@ var express = require('express')
 var bodyParser = require('body-parser');
 var path = require('path');
 var morgan = require('morgan');
+var cors = require('cors')
 var { check, validationResult } = require('express-validator/check');
 
 var fs = require('fs');
@@ -80,16 +81,12 @@ app.delete('/api/v1/users/subscriptions', [
   });
 });
 
+app.use(cors())
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 var public = path.join(__dirname, 'public');
 app.get('/', function(req, res) {
     res.sendFile(path.join(public, 'index.html'));
