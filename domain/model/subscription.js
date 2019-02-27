@@ -13,11 +13,11 @@ class Subscription {
 }
 
 Subscription.Channels={
-	EVENT: { key: "event", name: "event", description: "Ssshake videos" },
-	JOBS: { key: "jobs", name: "job opportunities" },
-	BLOG: { key: "blog", name: "blog articles" },
-	VIDEO: { key: "video", name: "video content" },
-	NEWSLETTER: { key: "newsletter", name: "monthly newsletter" }
+	EVENT: { key: "event", type: "realtime", name: "event", description: "Ssshake videos" },
+	JOBS: { key: "jobs", type: "realtime", name: "job opportunities" },
+	BLOG: { key: "blog", type: "realtime", name: "blog articles" },
+	VIDEO: { key: "video", type: "realtime", name: "video content" },
+	NEWSLETTER: { key: "newsletter", type: "digest", name: "monthly newsletter",  }
 }
 
 module.exports = {

@@ -8,14 +8,13 @@ body, .preferences {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: gray;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
   width: 100%;
   min-height: 100%;
-  background: #009688;
+  background: #4a4a4a;
   font-size: 16px;
   overflow: hidden;
 }
@@ -55,7 +54,7 @@ label {
   animation: rotatemagic 0.75s cubic-bezier(0.425, 1.04, 0.47, 1.105) 1s both;
 }
 
-.badgescard {
+.channels {
   padding: 10px 20px;
   margin-left: 15px;
   border-radius: 3px;
@@ -67,7 +66,7 @@ label {
   bottom: 10px;
   animation: animainfos 0.5s cubic-bezier(0.425, 1.04, 0.47, 1.105) 0.75s forwards;
 }
-.badgescard span {
+.channels span {
   font-size: 1.6em;
   margin: 0px 6px;
   opacity: 0.6;
